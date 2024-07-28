@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兴趣爱好 - 朱云长</title>
+    <style>
+        body {
+            font-family: "微软雅黑", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            width: 70%;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            background: #0072c6;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        nav {
+            background: #eee;
+            padding: 10px 0;
+            border-radius: 0 0 10px 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+        }
+        .main {
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .interest-block {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            color: white;
+        }
+        .interest-block h3 {
+            color: #0072c6;
+            margin-top: 0;
+        }
+        .interest-block p {
+            margin: 0;
+        }
+        .interest-block::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            filter: blur(8px);
+            border-radius: 10px;
+        }
+        #gaming::before {
+            background-image: url('D:/Relax/selfweb/1.avif');
+        }
+        #music::before {
+            background-image: url('D:/Relax/selfweb/2.avif');
+        }
+        #study::before {
+            background-image: url('D:/Relax/selfweb/3.avif');
+        }
+        #money::before {
+            background-image: url('D:/Relax/selfweb/1.avif');
+        }
+        #crack::before {
+            background-image: url('D:/Relax/selfweb/2.avif');
+        }
+        #live::before {
+            background-image: url('D:/Relax/selfweb/3.avif');
+        }
+        #media::before {
+            background-image: url('D:/Relax/selfweb/1.avif');
+        }
+        #ai::before {
+            background-image: url('D:/Relax/selfweb/2.avif');
+        }
+        #tech::before {
+            background-image: url('D:/Relax/selfweb/3.avif');
+        }
+        #internet::before {
+            background-image: url('D:/Relax/selfweb/1.avif');
+        }
+        #computer::before {
+            background-image: url('D:/Relax/selfweb/2.avif');
+        }
+        .highlight {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0072c6;
+            text-align: center;
+            margin-top: 30px;
+        }
+        footer {
+            background: #0072c6;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>兴趣爱好</h1>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <section class="main">
+            <div id="gaming" class="interest-block">
+                <h3>玩游戏</h3>
+                <p>玩游戏不仅是一种娱乐方式，更是一种放松和减压的方法。如今，在线游戏平台如Poki和Y8提供了丰富的游戏选择，包括单人、多人、射击、策略等各种类型的游戏。这些平台不仅为玩家提供了高质量的游戏体验，还促进了全球玩家之间的互动与交流。通过玩游戏，玩家可以提高反应速度、战略思维和团队合作能力。</p>
+            </div>
+            <div id="music" class="interest-block">
+                <h3>听歌</h3>
+                <p>听歌是一种普遍的兴趣爱好，能够带来情感的共鸣和精神的放松。无论是在工作间隙还是休闲时光，一首动听的歌曲都能给人带来愉悦的心情。音乐种类繁多，包括流行、古典、摇滚、爵士等，每种音乐风格都能带来不同的体验。通过听歌，人们可以探索不同文化，体验不同的情感世界。</p>
+            </div>
+            <div id="study" class="interest-block">
+                <h3>高效学习</h3>
+                <p>高效学习是现代社会中不可或缺的一项技能。通过掌握各种学习方法和技巧，如时间管理、快速阅读、记忆术等，能够显著提高学习效率和效果。利用在线资源和工具，如MOOCs、学习管理系统和教育APP，学习者可以随时随地获取知识，实现自我提升和职业发展。</p>
+            </div>
+            <div id="money" class="interest-block">
+                <h3>如何搞钱</h3>
+                <p>研究如何通过各种合法途径增加收入，是许多人关注的热点话题。从投资理财、创业、兼职到网络赚钱，每种方法都有其独特的优势和挑战。了解市场动态，掌握金融知识，制定合理的财务规划，是实现财务自由的重要步骤。网络上有大量的资源和课程，可以帮助人们学习如何有效地管理和增加财富。</p>
+            </div>
+            <div id="crack" class="interest-block">
+                <h3>资源破解</h3>
+                <p>资源破解是指通过技术手段获取各种付费或限制访问的资源。这包括破解软件、游戏、文档等。尽管此类行为在法律和道德上存在争议，但不可否认的是，掌握相关技术可以提高计算机技能，了解更多关于信息安全和加密技术的知识。</p>
+            </div>
+            <div id="live" class="interest-block">
+                <h3>直播</h3>
+                <p>直播作为一种新兴的媒体形式，已经深入到人们的日常生活中。通过直播，个人或企业可以实时与观众互动，分享内容、展示才艺、进行产品推广等。直播平台如斗鱼、虎牙、B站等，提供了广泛的受众和多样的内容形式，成为了许多人展示自我和创业的新途径。</p>
+            </div>
+            <div id="media" class="interest-block">
+                <h3>自媒体</h3>
+                <p>自媒体是指个人或小团队通过网络平台发布原创内容，从而获取影响力和收益的一种方式。无论是通过博客、微信公众号、视频平台还是社交媒体，自媒体创作者可以分享知识、见解和生活，吸引粉丝和关注。成功的自媒体需要优质的内容、独特的视角和持续的更新。</p>
+            </div>
+            <div id="ai" class="interest-block">
+                <h3>AI</h3>
+                <p>人工智能（AI）是当前最热门的技术领域之一。通过机器学习、深度学习和神经网络等技术，AI在图像识别、自然语言处理、自动驾驶等领域取得了显著进展。AI不仅改变了人们的生活方式，也推动了各行业的创新和发展。学习和研究AI，能够掌握未来的科技潮流，开拓新的职业机会。</p>
+            </div>
+            <div id="tech" class="interest-block">
+                <h3>高科技</h3>
+                <p>高科技涵盖了包括人工智能、物联网、量子计算等在内的前沿技术领域。这些技术正在迅速改变着我们的世界，从医疗健康、智能家居到自动驾驶，无处不在的高科技应用提高了生活质量和工作效率。了解和掌握高科技，是保持竞争力和创新能力的关键。</p>
+            </div>
+            <div id="internet" class="interest-block">
+                <h3>互联网</h3>
+                <p>互联网是现代社会的信息基础设施，它不仅改变了人们的沟通方式，也带来了无限的商业和教育机会。通过互联网，人们可以进行电子商务、远程教育、社交网络等各种活动。掌握互联网技术，如网页设计、网络营销和数据分析，能够为个人和企业带来巨大的发展机遇。</p>
+            </div>
+            <div id="computer" class="interest-block">
+                <h3>计算机</h3>
+                <p>计算机技术是现代科技的核心。从基本的编程语言、操作系统到复杂的数据库和网络安全，计算机技术涵盖了广泛的领域。掌握计算机技术，不仅可以提高工作效率，还可以开拓新的职业发展路径。通过学习计算机科学，了解最新的技术动态，能够更好地适应和引领数字化时代的发展。</p>
+            </div>
+            <div class="highlight">
+                我希望找到一份养老工作，并期待找到志同道合、资源丰富的大佬朋友。
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 朱云长. 保留所有权利。</p>
+        </div>
+    </footer>
+</body>
+</html>

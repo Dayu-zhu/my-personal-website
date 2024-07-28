@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对苗苗的表白</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: #000 url('https://source.unsplash.com/1600x900/?night,sky') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-family: "微软雅黑", Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        .time-display {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 24px;
+            color: #FFD700;
+            font-weight: bold;
+        }
+        .container {
+            width: 50%;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            z-index: 10;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .heart {
+            width: 200px;
+            height: 180px;
+            position: relative;
+            display: inline-block;
+            background-image: url('https://source.unsplash.com/1000x1000/?red,rose'); /* Updated to a clearer image of red roses */
+            background-size: cover;
+            animation: beat .25s infinite alternate;
+            transform-origin: bottom center;
+        }
+        @keyframes beat {
+            to { transform: scale(1.1); }
+        }
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            animation: drift 10s infinite linear;
+        }
+        .star {
+            position: absolute;
+            bottom: 100%;
+            width: 12px; /* Increased size for better visibility */
+            height: 12px; /* Increased size for better visibility */
+            background: #FFFF00; /* Bright yellow color */
+            border-radius: 50%;
+            box-shadow: 0 0 15px #FFFF00; /* Added a glow effect */
+        }
+        @keyframes drift {
+            from { transform: translateY(0); }
+            to { transform: translateY(1000px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars">
+        <!-- Enhanced multiple falling stars with different positions and increased size -->
+        <div class="star" style="left: 10%; animation-duration: 5s;"></div>
+        <div class="star" style="left: 20%; animation-duration: 8s;"></div>
+        <div class="star" style="left: 30%; animation-duration: 6s;"></div>
+        <div class="star" style="left: 40%; animation-duration: 7s;"></div>
+        <div class="star" style="left: 50%; animation-duration: 5s;"></div>
+        <div class="star" style="left: 60%; animation-duration: 8s;"></div>
+        <div the "star" style="left: 70%; animation-duration: 6s;"></div>
+        <div the "star" style="left: 80%; animation-duration: 7s;"></div>
+        <div the "star" style="left: 90%; animation-duration: 5s;"></div>
+    </div>
+    <div class="time-display" id="timeDisplay"></div>
+    <div class="container">
+        <h1>我对苗苗的表白</h1>
+        <div class="heart"></div>
+        <p>亲爱的苗苗，自从我们开始走到一起的那一刻起，我的世界便充满了无比的光明和希望。</p>
+        <p>我想与你一起规划我们的未来，走过每一个春夏秋冬，共享人生的每一次喜悦与挑战。</p>
+        <p>我承诺，无论生活的路有多么艰难，我都将是你最坚实的后盾。让我们一起面对未来的风雨，分享每一个快乐的瞬间。</p>
+        <p>苗苗，我爱你，这份爱来自我的内心深处，它是真挚的，是深沉的。愿我们的爱如这漫天的星辰，永恒不变。</p>
+        <footer>爱你的，朱云长</footer>
+    </div>
+    <script>
+        function updateTimer() {
+            const startDateTime = new Date(2022, 6, 2, 22, 0, 0); // Month is 0-based, so 6 is July
+            const currentDateTime = new Date();
+            let delta = Math.abs(currentDateTime - startDateTime) / 1000;
+
+            const days = Math.floor(delta / 86400);
+            delta -= days * 86400;
+
+            const hours = Math.floor(delta / 3600) % 24;
+            delta -= hours * 3600;
+
+            const minutes = Math.floor(delta / 60) % 60;
+            delta -= minutes * 60;
+
+            const seconds = delta % 60;  // In case you need seconds
+
+            document.getElementById('timeDisplay').innerHTML = `距离我们在一起已经：<span>${days}天${hours}小时${minutes}分钟</span>`;
+        }
+
+        updateTimer(); // Update timer on load
+        setInterval(updateTimer, 60000); // Update timer every minute
+    </script>
+</body>
+</html>
