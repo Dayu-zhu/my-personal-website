@@ -84,6 +84,7 @@
             });
 
             // 横屏显示按钮
+            /*
             $('#rotate-screen-btn').on('click', function() {
                 if (screen.orientation && screen.orientation.lock) {
                     screen.orientation.lock('landscape').catch(function(error) {
@@ -93,6 +94,19 @@
                     alert("此浏览器不支持屏幕方向锁定功能，请手动旋转设备。");
                 }
             });
+            */
+            document.getElementById('rotate-screen-btn').addEventListener('click', function() {
+            if (screen.orientation && screen.orientation.lock) {
+                document.documentElement.requestFullscreen().then(() => {
+                    return screen.orientation.lock('landscape');
+                }).catch(function(error) {
+                    console.log("无法锁定屏幕方向: " + error);
+                    alert("此浏览器不支持自动屏幕方向锁定功能，请手动旋转设备。");
+                });
+            } else {
+                alert("此浏览器不支持屏幕方向锁定功能，请手动旋转设备。");
+            }
+        });
 
             // 自动播放和切换音频的功能
             function toggleSound() {
