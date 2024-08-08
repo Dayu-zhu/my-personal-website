@@ -21,7 +21,7 @@
 <body>
     <div class="content">
         <div id="main">
-            <button id="fullscreen-btn">全屏显示</button>
+            <button id="fullscreen-btn">显示</button>
             <button id="rotate-screen-btn">横屏显示</button>
             <button id="play-audio-btn">播放音频</button>
             <div id="error">亲，您使用的浏览器无法支持即将显示的内容，请换成谷歌(<a
@@ -30,13 +30,22 @@
             <div id="wrap">
                 <div id="text">
                     <div id="code">
-                        <span class="say">写给喵喵的情书</span><br>
-                        <span class="say">亲爱的苗苗，自从我们开始走到一起的那一刻起，我的世界便充满了无比的光明和希望。</span><br>
-                        <!-- 其余内容省略 -->
+                        <span class="say">    亲爱的苗苗</span><br>
+                        <span class="say">   你知道吗，今天七夕，距离我们走到一起过去了正好770天。</span><br>
+                        <span class="say">   两年前我们的联系开始于加了微信，第一次自我介绍之后，宝贝在认识之后的一周以后得晚上给我发消息，至此我们的联系开始了。再过了大概半个月的时间我们成为了男女朋友，我们确定是男女朋友的时候甚至都没有视频过。是不是第一次视频就确定了关系呢。又过了半个月，七月底我回家了，我们玩了将近一周。接下来走后的第一周周四应该就是七夕了。宝跑过来北京找我，我们住在了永康，我写了第一封情书给你，当时还特意学习了折情书。当时也是抽时间写的，包括现在的我也是。第一个七夕没有实质礼物，还被你的家人笑话了。</span><br>
+                        <span class="say">   第一次见面时，我给你买了散装玫瑰花，自己动手包成花束。在没见你几次的时候，我就买了一条适合你的绿色连衣裙，你对我动心，应该就是那个时候吧。还有我们初期的那些深夜长谈，寻找一些适合异地恋一起用的APP，那些都是热恋期真情的流露。</span><br><!-- 其余内容省略 -->
+                        <span class="say">   八月十五的时候，你第二次来北京，我们一起洗了澡。十月时，由于疫情原因，你不开心，我从北京跑到定州再返回，总共花了四个小时，只为了见你一面。说实话，那次真的是冒了很大风险，因为有可能要面临14天的隔离。十一月你的第一个生日，我给你买了口红。</span><br>
+                        <span class="say">   去年五月份，你妈妈检查出肿瘤，那是一个压抑的夜晚。我挣扎着坐着从定州到北京的末班车，定了医院附近的温特莱酒店。</span><br>
+                        <span class="say">   去年十月，我们去了北京野生动物园。回想起来，我们确实没有去过太多地方。我们一起去保定考试，在肯德基睡着了。其他时候见面就是吃自助餐。去年你十一月生日时，我精心挑选了星空灯作为礼物，但由于你不喜欢，现在也没有送出去。</span><br>
+                        <span class="say">   还记得我第一个生日时，你给我买了床单被罩和被子，寓意“一辈子”。其实，我最喜欢你给我买的裤子、蚊帐和两件背心。</span><br>
+                        <span class="say">   今年年初过年的时候，我去你家拜访，但因为我妈妈本来就不同意我们在一起，冲突升级，向你陈述了事实。我无法说服妈妈，所以把钱转给了她，然后去见了你。你不接受我，我选择了放手。你将聊天记录和照片删掉了。</span><br>
+                        <span class="say">   我妈妈对我的顾虑，是担心我以后的经济负担会很重。就你的条件（工作能力）而言，这是现实问题，我得承认这一点不足，所以我说我可以接受。你妈妈的病情每月需要两千块的持续治疗，而且她也需要有人付出时间照顾。你爸爸的工作没有退休金，只能继续努力工作，好的情况下或许不需要下一代的照顾，但我们不能不考虑这些问题。</span><br>
+                        <span class="say">   从什么时候开始，你对异地的问题一直发愁，让我给出解决方案。我也没能给出多么合理的规划。你有时会说我的规划里没有你，然后你就哭了。我只有一点希望，那就是我们能永远支持对方。真的支持，生活已经很累了，确实没有必要在亲密关系上花费更多精力。我确定的一点是，你喜欢我，我从未怀疑过这一点（喜欢我什么，我认为不单单是觉得和我生活后不需要顾虑以后的生活开销）。希望我没有被骗哦。接下来，我们还是要一起商议今后的日子怎么过，让双方都放心，相互扶持。</span><br>   
+                        <span class="say">                           爱你的： 朱云长</span><br>
                     </div>
                 </div>
                 <div id="clock-box">
-                    <a target="_blank">云长</a> 与 <a target="_blank">喵喵</a> 在一起的
+                    <a target="_blank">云长</a> 与 <a target="_blank">苗苗</a> 在一起的
                     <div id="clock"></div>
                 </div>
                 <canvas id="canvas" width="1100" height="680"></canvas>
@@ -52,7 +61,7 @@
             function checkOrientation() {
                 if (window.innerHeight > window.innerWidth) {
                     $('.content').show();
-                    $('.rotate-message').show();
+                    $('.rotate-message').hide();
                 } else {
                     $('.content').show();
                     $('.rotate-message').hide();
@@ -84,7 +93,6 @@
             });
 
             // 横屏显示按钮
-            /*
             $('#rotate-screen-btn').on('click', function() {
                 if (screen.orientation && screen.orientation.lock) {
                     screen.orientation.lock('landscape').catch(function(error) {
@@ -94,19 +102,6 @@
                     alert("此浏览器不支持屏幕方向锁定功能，请手动旋转设备。");
                 }
             });
-            */
-            document.getElementById('rotate-screen-btn').addEventListener('click', function() {
-            if (screen.orientation && screen.orientation.lock) {
-                document.documentElement.requestFullscreen().then(() => {
-                    return screen.orientation.lock('landscape');
-                }).catch(function(error) {
-                    console.log("无法锁定屏幕方向: " + error);
-                    alert("此浏览器不支持自动屏幕方向锁定功能，请手动旋转设备。");
-                });
-            } else {
-                alert("此浏览器不支持屏幕方向锁定功能，请手动旋转设备。");
-            }
-        });
 
             // 自动播放和切换音频的功能
             function toggleSound() {

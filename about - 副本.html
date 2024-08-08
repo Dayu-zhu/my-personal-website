@@ -1,116 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Love</title>
-
-    <link type="text/css" rel="stylesheet" href="assets/css/styles.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="assets/js/jscex.min.js"></script>
-    <script type="text/javascript" src="assets/js/jscex-parser.js"></script>
-    <script type="text/javascript" src="assets/js/jscex-jit.js"></script>
-    <script type="text/javascript" src="assets/js/jscex-builderbase.min.js"></script>
-    <script type="text/javascript" src="assets/js/jscex-async.min.js"></script>
-    <script type="text/javascript" src="assets/js/jscex-async-powerpack.min.js"></script>
-    <script type="text/javascript" src="assets/js/love.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强制横屏展示</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            transform-origin: left top;
+        }
+        .landscape {
+            transform: rotate(0deg);
+        }
+        .portrait {
+            transform: rotate(90deg);
+            width: 100vh; /* 旋转后高度变宽度 */
+            height: 100vw; /* 旋转后宽度变高度 */
+        }
+    </style>
 </head>
-
 <body>
-    <div class="content">
-        <div id="main">
-            <button id="fullscreen-btn">全屏显示</button>
-            <button id="rotate-screen-btn">横屏显示</button>
-            <button id="play-audio-btn">播放音频</button>
-            <div id="error">亲，您使用的浏览器无法支持即将显示的内容，请换成谷歌(<a
-                    href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
-                    href="http://firefox.com.cn/download/">Firefox</a>)浏览器哟~</div>
-            <div id="wrap">
-                <div id="text">
-                    <div id="code">
-                        <span class="say">写给喵喵的情书</span><br>
-                        <span class="say">亲爱的苗苗，自从我们开始走到一起的那一刻起，我的世界便充满了无比的光明和希望。</span><br>
-                        <!-- 其余内容省略 -->
-                    </div>
-                </div>
-                <div id="clock-box">
-                    <a target="_blank">云长</a> 与 <a target="_blank">喵喵</a> 在一起的
-                    <div id="clock"></div>
-                </div>
-                <img src="assets/images/promot.png" alt="朱云长">
-                <canvas id="canvas" width="1100" height="680"></canvas>
-            </div>
-            <audio id="aud" src="https://ksongaudbssdlbig.hw.kugou.com/202408090138/c054c9c72605339ee547bc6795bcef52/bss/extname/ksongaud/e6f8ef453f5c6c01ac2b6c7ee5d0090a.m4a"></audio>
-        </div>
+    <div class="container">
+        <!-- 你的内容在这里 -->
+        <h1>强制横屏展示</h1>
+        <p>这是一个示例页面，强制以横屏模式展示。</p>
     </div>
-    <div class="rotate-message">
-        请旋转您的设备到横屏模式。
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            function checkOrientation() {
-                if (window.innerHeight > window.innerWidth) {
-                    $('.content').hide();
-                    $('.rotate-message').show();
-                } else {
-                    $('.content').show();
-                    $('.rotate-message').hide();
-                }
+    <script>
+        function checkOrientation() {
+            const container = document.querySelector('.container');
+            if (window.innerHeight > window.innerWidth) {
+                container.classList.add('portrait');
+                container.classList.remove('landscape');
+            } else {
+                container.classList.add('landscape');
+                container.classList.remove('portrait');
             }
+        }
 
-            $(window).on('resize', checkOrientation);
-            checkOrientation();
-
-            // 点击按钮播放音频
-            $('#play-audio-btn').on('click', function() {
-                var music = document.getElementById("aud");
-                music.play().catch(function(error) {
-                    console.log("播放音频时出错: " + error);
-                });
-            });
-
-            // 全屏显示按钮
-            $('#fullscreen-btn').on('click', function() {
-                var elem = document.documentElement;
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.mozRequestFullScreen) { // Firefox 
-                    elem.mozRequestFullScreen();
-                } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera 
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { // IE/Edge 
-                    elem.msRequestFullscreen();
-                }
-            });
-
-            // 横屏显示按钮
-            $('#rotate-screen-btn').on('click', function() {
-                if (screen.orientation && screen.orientation.lock) {
-                    screen.orientation.lock('landscape').catch(function(error) {
-                        console.log("锁定屏幕方向时出错: " + error);
-                    });
-                } else {
-                    alert("此浏览器不支持屏幕方向锁定功能，请手动旋转设备。");
-                }
-            });
-
-            // 自动播放和切换音频的功能
-            function toggleSound() {
-                var music = document.getElementById("aud");
-                if (music.paused) {
-                    music.play().catch(function(error) {
-                        console.log("播放音频时出错: " + error);
-                    });
-                } else {
-                    music.pause();
-                }
-            }
-
-            // 页面加载后每隔100毫秒切换一次音频
-            setInterval(toggleSound, 100);
-        });
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('load', checkOrientation);
     </script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
-
 </html>
