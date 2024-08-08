@@ -6,16 +6,14 @@
     <title>Love</title>
 
     <link type="text/css" rel="stylesheet" href="assets/css/styles.css">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="assets/js/jscex.min.js"></script>
     <script type="text/javascript" src="assets/js/jscex-parser.js"></script>
     <script type="text/javascript" src="assets/js/jscex-jit.js"></script>
     <script type="text/javascript" src="assets/js/jscex-builderbase.min.js"></script>
     <script type="text/javascript" src="assets/js/jscex-async.min.js"></script>
     <script type="text/javascript" src="assets/js/jscex-async-powerpack.min.js"></script>
-    <script type="text/javascript" src="assets/js/functions.js" charset="utf-8"></script>
-    <script type="text/javascript" src="assets/js/love.js" charset="utf-8"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript" src="assets/js/love.js"></script>
 </head>
 
 <body>
@@ -39,6 +37,7 @@
                     <a target="_blank">云长</a> 与 <a target="_blank">喵喵</a> 在一起的
                     <div id="clock"></div>
                 </div>
+                <img src="assets/images/promot.png" alt="朱云长">
                 <canvas id="canvas" width="1100" height="680"></canvas>
             </div>
             <audio id="aud" src="https://ksongaudbssdlbig.hw.kugou.com/202408090138/c054c9c72605339ee547bc6795bcef52/bss/extname/ksongaud/e6f8ef453f5c6c01ac2b6c7ee5d0090a.m4a"></audio>
@@ -51,7 +50,7 @@
         $(document).ready(function() {
             function checkOrientation() {
                 if (window.innerHeight > window.innerWidth) {
-                    $('.content').show();
+                    $('.content').hide();
                     $('.rotate-message').show();
                 } else {
                     $('.content').show();
@@ -69,8 +68,9 @@
                     console.log("播放音频时出错: " + error);
                 });
             });
-                        // 全屏显示按钮
-                        $('#fullscreen-btn').on('click', function() {
+
+            // 全屏显示按钮
+            $('#fullscreen-btn').on('click', function() {
                 var elem = document.documentElement;
                 if (elem.requestFullscreen) {
                     elem.requestFullscreen();
@@ -107,16 +107,10 @@
             }
 
             // 页面加载后每隔100毫秒切换一次音频
-            //setInterval(toggleSound, 100);
+            setInterval(toggleSound, 100);
         });
-            //window.onload = function () {
-        //setInterval("toggleSound()", 100);
-
-    //}
-        //});
     </script>
-
-    
+    <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 
 </html>
