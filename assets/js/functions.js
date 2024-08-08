@@ -3,6 +3,7 @@
  */
 
 // variables
+/*
 var $win = $(window);
 var clientWidth = $win.width();
 var clientHeight = $win.height();
@@ -14,6 +15,23 @@ $(window).resize(function() {
         location.replace(location);
     }
 });
+*/
+$(window).on('orientationchange', function() {
+    checkOrientation();
+});
+
+function checkOrientation() {
+    if (window.innerHeight > window.innerWidth) {
+        $('.content').hide();
+        $('.rotate-message').show();
+    } else {
+        $('.content').show();
+        $('.rotate-message').hide();
+    }
+}
+
+$(window).resize(checkOrientation);
+checkOrientation();
 
 (function($) {
 	$.fn.typewriter = function() {
@@ -36,6 +54,7 @@ $(window).resize(function() {
 		return this;
 	};
 })(jQuery);
+
 
 function timeElapse(date){
 	var current = Date();
