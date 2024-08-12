@@ -21,9 +21,8 @@
 <body>
     <div class="content">
         <div id="main">
-            <button id="fullscreen-btn">显示</button>
-            <button id="rotate-screen-btn">横屏显示</button>
-            <button id="play-audio-btn">播放音频</button>
+
+
             <div id="error">亲，您使用的浏览器无法支持即将显示的内容，请换成谷歌(<a
                     href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
                     href="http://firefox.com.cn/download/">Firefox</a>)浏览器哟~</div>
@@ -57,6 +56,18 @@
         请旋转您的设备到横屏模式。
     </div>
     <script type="text/javascript">
+                   window.onload = function () {
+            setInterval("toggleSound()", 100);
+
+        }
+        function toggleSound() {
+            var music = document.getElementById("aud");//获取ID  
+
+            if (music.paused) { //判读是否播放  
+                music.paused = false;
+                music.play(); //没有就播放 
+            }
+        }
         $(document).ready(function() {
             function checkOrientation() {
                 if (window.innerHeight > window.innerWidth) {
@@ -70,7 +81,9 @@
 
             $(window).on('resize', checkOrientation);
             checkOrientation();
-
+            
+ 
+/*
             // 点击按钮播放音频
             $('#play-audio-btn').on('click', function() {
                 var music = document.getElementById("aud");
@@ -78,6 +91,7 @@
                     console.log("播放音频时出错: " + error);
                 });
             });
+            */
                         // 全屏显示按钮
                         $('#fullscreen-btn').on('click', function() {
                 var elem = document.documentElement;
@@ -103,6 +117,7 @@
                 }
             });
 
+/*
             // 自动播放和切换音频的功能
             function toggleSound() {
                 var music = document.getElementById("aud");
@@ -114,7 +129,7 @@
                     music.pause();
                 }
             }
-
+*/
             // 页面加载后每隔100毫秒切换一次音频
             //setInterval(toggleSound, 100);
         });
